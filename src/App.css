@@ -37,6 +37,18 @@
   }
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100vh; /* Ensure body takes full height */
+  display: flex; /* Optional: Use flexbox for layout */
+  flex-direction: column; /* Optional: Stack children vertically */
+  background-size: cover;
+}
+
 body.dark {
   background-color: #121212;
   color: #ffffff;

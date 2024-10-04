@@ -185,10 +185,10 @@ Score: ${totalScore}`;
                   className={darkMode ? 'bg-dark text-light' : ''}
                 >
                   <option value="">Select a plan</option>
-                  <option value="enterprise">Enterprise</option>
-                  <option value="growth">Growth</option>
-                  <option value="starter">Starter</option>
-                  <option value="open-source">Open-source</option>
+                  <option value="Enterprise">Enterprise</option>
+                  <option value="Growth">Growth</option>
+                  <option value="Starter">Starter</option>
+                  <option value="Open-source">Open-source</option>
                 </Form.Control>
               </Form.Group>
             </Col>
@@ -258,29 +258,34 @@ Score: ${totalScore}`;
         )}
 
         {score !== null && (
-          <div className="d-flex justify-content-between align-items-center mt-4">
-            <div className={`p-3 ${darkMode ? 'bg-dark text-light' : 'bg-light'}`}>
-              <Alert variant={getPriority(score).color}>
-                <h6>Priority: {getPriority(score).text}</h6>
-                <p>Score: {score}</p>
-              </Alert>
-
-              <InputGroup className="mb-3">
-                <Form.Control
-                  ref={copyTextRef}
-                  as="textarea"
-                  value={copyText}
-                  readOnly
-                  rows={5}
-                  className={darkMode ? 'bg-dark text-light' : ''}
-                />
-                <Button onClick={copyToClipboard}>
-                  <Clipboard className="h-4 w-4" />
-                </Button>
-              </InputGroup>
+          <div className="d-flex flex-column">
+            <div className="row flex-fill mt-4">
+              <div className={`col-md-4 p-3 d-flex align-items-center ${darkMode ? 'bg-dark text-light' : 'bg-light'}`}>
+                <Alert variant={getPriority(score).color} className="w-100">
+                  <h6>Priority: {getPriority(score).text}</h6>
+                  <p>Score: {score}</p>
+                </Alert>
+              </div>
+              <div className={`col-md-8 p-3 d-flex align-items-center ${darkMode ? 'bg-dark text-light' : 'bg-light'}`}>
+                <InputGroup className="mb-3 w-100">
+                  <Form.Control
+                    ref={copyTextRef}
+                    as="textarea"
+                    value={copyText}
+                    readOnly
+                    rows={5}
+                    className={darkMode ? 'bg-dark text-light' : ''}
+                  />
+                  <Button onClick={copyToClipboard}>
+                    <Clipboard className="h-4 w-4" />
+                  </Button>
+                </InputGroup>
+              </div>
             </div>
           </div>
         )}
+
+
       </Card.Body>
     </Card>
   );
